@@ -1,7 +1,7 @@
 # 001 - Check-Then-Act 001
 
 ## 문제
-다음 메서드는 스토리지에 디렉터리를 생성하고 `projectMap`에 등록하는 기능을 하며, Check-Then-Act 패턴으로 인한 race condition이 있습니다.
+다음 메서드는 스토리지에 디렉터리를 생성하고 `projectMap: ConcurrentHashMap`에 등록하는 기능을 하며, Check-Then-Act 패턴으로 인한 race condition이 있습니다.
 
 ```kotlin
 fun createProject(projectKey: String): Boolean {
