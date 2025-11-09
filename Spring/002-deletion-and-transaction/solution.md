@@ -14,10 +14,11 @@ synchronized(item) {
 }
 ```
 
-## Solution 1. Check-Then-Act Race Condition
+## Solution
 
 Thread-unsafe한 로직을 배제하고 `synchronized`를 사용하여 삭제 연산에서 발생하는 레이스 컨디션을 방지합니다.  
-추가로 파일을 삭제할 때 파일이 없으면 예외를 던지도록 하여 안정성을 보강합니다.
+추가로 파일을 삭제할 때 파일이 없으면 예외를 던지도록 하여 안정성을 보강합니다.  
+최종적으로 `synchronized`를 적절히 사용하여 모든 문제를 해결할 수 있습니다.
 
 샘플 코드
 ```kotlin
