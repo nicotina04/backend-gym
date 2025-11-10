@@ -109,8 +109,6 @@ val client = project.clients.getOrPut(clientId) {
 }
 ```
 
-**해당 부분의 연산을 원자적으로 처리하도록 변경하세요.**
-
 ## 2. TOCTOU(Time-of-Check to Time-of-Use) Race Condition
 
 다음과 같이 파일을 생성하는 코드는 thread unsafe 입니다.
@@ -127,6 +125,6 @@ if (!tempFile.renameTo(finalZip)) {
 
 동시에 여러 쓰레드가 동일한 버전 태그를 가진 파일을 업로드할 경우, 예외가 발생하지 않고 덮어씌워질 문제가 있습니다.
 
-**여러 쓰레드가 같은 버전 태그를 업로드할 때 덮어씌워지는 문제를 해결하고 예외가 정상적으로 발생하도록 수정하세요.**
+**여러 쓰레드가 같은 버전 태그를 업로드할 때 발생하는 Race Condition 문제를 해결하고 예외가 정상적으로 발생하도록 수정하세요.**
 
 [풀이](solution.md)
